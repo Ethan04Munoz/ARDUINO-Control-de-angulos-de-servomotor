@@ -1,8 +1,25 @@
+//Servo
 #include <Servo.h>
 #define pservo 2
+
+//LCD
+#include <LiquidCrystal_I2C.h>
+//Crear el objeto lcd  dirección  0x3F y 16 columnas x 2 filas
+LiquidCrystal_I2C lcd(0x27,16,2);  //
+
+//Teclado
+#include <Keypad.h>
+const byte filas = 4; 
+const byte columnas = 4;
+byte pinesFilas[]  = {9,8,7,6};
+byte pinesColumnas[] = {5,4,3,2};
+char teclas[4][4] = {{'1','2','3','A'},
+                     {'4','5','6','B'},
+                     {'7','8','9','C'},
+                     {'*','0','#','D'}};
+Keypad teclado1 = Keypad( makeKeymap(teclas), pinesFilas, pinesColumnas, filas, columnas); 
+
 Servo servo1;
-int pulsemin=1000;
-int pulsemax=2000;
 char angle=200;
 void setup() {
   servo1.attach(pservo);
