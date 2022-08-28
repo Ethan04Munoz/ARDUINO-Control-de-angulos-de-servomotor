@@ -32,25 +32,16 @@ void setup() {
 }
 
 void loop() {
-  /*while(Serial.available()==0){
-  }
-  angle=Serial.read();
-  Serial.println(angle);*/
-  /*lcd.setCursor(0,0);
-  lcd.print("Ingrese el ang");
+  lcd.print("Ingresa el ang");
   lcd.setCursor(0,1);
-  lcd.print("ulo del 0 al 9:");
-  while(true){
-      angle = teclado1.getKey();
-      break;
-  }*/
+  lcd.print("ulo: ");
   char angle = teclado1.getKey();
   while(angle == NO_KEY)
   {
     angle = teclado1.getKey();
-    lcd.print(angle);
     delay(100); 
   }
+  lcd.print(angle);
   lcd.clear();
   switch(angle){
     case '0':
@@ -123,6 +114,9 @@ void loop() {
       servo1.write(180);
       break;
     }
-    delay(2500);
+    
   }
+  delay(3500);
+  lcd.clear();
+  lcd.setCursor(0,0);
 }
